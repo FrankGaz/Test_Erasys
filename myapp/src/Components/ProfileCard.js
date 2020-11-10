@@ -1,20 +1,20 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
-
 import Card from "@material-ui/core/Card";
-
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import LocationOnIcon from "@material-ui/icons/LocationOn";
 import Typography from "@material-ui/core/Typography";
-
 import TimelineDot from "@material-ui/lab/TimelineDot";
-
-import "../App.css";
 import avatarImg from "../images/avatar_pic.jpg";
+import "../App.css";
+import http from '../api/http.service';
+//import profilesAPI from "../api/profilesAPI";
+
+
 
 const useStyles = makeStyles({
   root: {
@@ -29,6 +29,14 @@ const useStyles = makeStyles({
 function ProfileCard() {
   const classes = useStyles();
   const bull = <span className={classes.bullet}>•</span>;
+  const apiProfiles = 'api/search?length=32';
+  
+  http.get(apiProfiles).then(users=> {
+        console.log(users);
+    }).catch(error => {
+        console.error(error);
+    })
+  
 
   return (
     <Grid item xs={12} sm={6} md={3} className="profileCard">
@@ -44,7 +52,7 @@ function ProfileCard() {
               <Typography gutterBottom variant="h5" component="h2">
                 35 {bull} Lizard
               </Typography>
-              <TimelineDot color="primary" />
+              <TimelineDot style={{ backgroundColor: "#00cc00" }} />
             </CardActions>
           </CardContent>
           <CardContent className="profileCard_location">
