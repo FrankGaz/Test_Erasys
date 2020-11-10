@@ -1,4 +1,3 @@
-
 /*
 .profileCard {
   background-color: #0C4864;
@@ -7,39 +6,79 @@
 }*/
 
 
-
-.MuiGrid-grid-xs-12{
+/* MATERIAL UI CHANGED STYLES */
+.MuiGrid-grid-xs-12 {
   max-width: 350px !important;
 
 }
-.profileCard_img{
-  width:100% ;
+
+/* MY STYLES */
+
+.profileCard_img {
+  width: 100%;
   height: 60%;
   overflow: hidden;
 }
 
-.profileCard_img-file{
-  
-  width:100% ;
+.profileCard_img-file {
+
+  width: 100%;
   height: auto;
 }
 
-.profileCard_header-content{
-  padding: 0 !important;
-}
-.profileCard_header{
+.profileCard_header {
   padding-bottom: 0 !important;
-}
-.profileCard_data{
-  position: relative;
-  z-index: 1;
-  width:100% ;
-  height: 40%;
   background-color: #0C4864;
 }
 
-@media (max-width: 600px) { 
-  .MuiGrid-container{
+.profileCard_header-content {
+  padding: 0 !important;
+  color: #fff;
+  justify-content: space-between;
+
+}
+
+.profileCard_location {
+  padding-bottom: 0 !important;
+  background-color: #0C4864;
+}
+
+.profileCard_location-container {
+  width: 100%;
+  padding: 0 !important;
+}
+
+.profileCard_location-content {
+  padding: 0 !important;
+  width: 100%;
+  color: #fff;
+  display: inline-flex;
+  justify-content: space-between;
+}
+.profileCard_location-data{
+  width: 100%;
+  display: inline-flex;
+  justify-content: space-around;
+}
+.profileCard_body {
+  background-color: #0C4864;
+}
+
+p.profileCard_body-head {
+  color: #fff;
+}
+
+.profileCard_data {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 40%;
+  background-color: #0C4864;
+
+}
+
+@media (max-width: 600px) {
+  .MuiGrid-container {
     justify-content: center;
   }
 }
