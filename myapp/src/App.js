@@ -1,8 +1,8 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
-import Grid from "@material-ui/core/Grid";
-import ProfileCard from "./Components/ProfileCard";
+
+import ProfileCardGrid from "./Components/ProfileCardGrid";
 import "./App.css";
 
 const useStyles = makeStyles((theme) => ({
@@ -22,7 +22,7 @@ function App() {
     <Container maxWidth="lg">
       <div className={classes.root}>
         
-          <ProfileCard />
+          <ProfileCardGrid />
        
       </div>
     </Container>
