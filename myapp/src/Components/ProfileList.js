@@ -1,7 +1,6 @@
 import React from "react";
 import http from "../api/http.service";
-//import { makeStyles } from "@material-ui/core/styles";
-import StylesClasses from './StylesClasses';
+import { withStyles } from '@material-ui/core/styles';
 import Grid from "@material-ui/core/Grid";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
@@ -16,10 +15,19 @@ import "../App.css";
 
 const apiProfiles = "/api/search?length=20&sorting=DISTANCE";
 const profilesAPI = http.get(apiProfiles);
-const bull = <span className={<StylesClasses/>.bullet}>•</span>;
+const useStyles = theme => ({
+    root: {
+        maxWidth: 345,
+      },
+  
+      media: {
+        height: 140,
+      },
+});
 
 
-export default class ProfileList extends React.Component {
+
+class ProfileList extends React.Component {
   state = {
     profiles: [],
   };
@@ -28,10 +36,14 @@ export default class ProfileList extends React.Component {
     profilesAPI.then((res) => {
       const profiles = res.data.items;
       this.setState({ profiles });
+      console.log(profiles.name);
     });
   }
 
+
   render() {
+    const { classes } = this.props;
+    const bull = <span className={classes.bullet}>•</span>;
     return (
     <Grid className="MyGrid" container spacing={3}>
         {this.state.profiles.map((profile, index) => (
@@ -39,10 +51,10 @@ export default class ProfileList extends React.Component {
         
         <Grid key={index} item xs={12} sm={6} md={3} className="profileCard">
           
-          <Card className={<StylesClasses/>.root}>
+          <Card className={classes.root}>
             <CardActionArea>
               <CardMedia
-                className={<StylesClasses/>.media}
+                className={classes.media}
                 image={avatarImg}
                 title="Profile picture"
               />
@@ -97,3 +109,4 @@ export default class ProfileList extends React.Component {
     );
   }
 }
+export default withStyles(useStyles)(ProfileList);
