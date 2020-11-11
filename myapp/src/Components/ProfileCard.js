@@ -11,9 +11,8 @@ import Typography from "@material-ui/core/Typography";
 import TimelineDot from "@material-ui/lab/TimelineDot";
 import avatarImg from "../images/avatar_pic.jpg";
 import "../App.css";
-import http from '../api/http.service';
+import ProfileList from './ProfileList';
 //import profilesAPI from "../api/profilesAPI";
-
 
 
 const useStyles = makeStyles({
@@ -26,20 +25,32 @@ const useStyles = makeStyles({
   },
 });
 
+
+
+
+//let profileArray = ProfileList();
+
+//const profileList = profilesAPI.map(() =>(<li key={item + i}>{item}</li>));
+
+
 function ProfileCard() {
   const classes = useStyles();
   const bull = <span className={classes.bullet}>•</span>;
-  const apiProfiles = 'api/search?length=32';
   
-  http.get(apiProfiles).then(users=> {
-        console.log(users);
-    }).catch(error => {
-        console.error(error);
-    })
+//  console.log(profilesAPI);
+//  console.log(profileArray);
+ //console.log(profileArray);
+ 
+
+    
   
 
   return (
+    
     <Grid item xs={12} sm={6} md={3} className="profileCard">
+        <div>
+    <ProfileList/>
+    </div>
       <Card className={classes.root}>
         <CardActionArea>
           <CardMedia
