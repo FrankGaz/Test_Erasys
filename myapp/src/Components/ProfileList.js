@@ -27,6 +27,7 @@ const useStyles = (theme) => ({
     height: 140,
   },
 });
+const maxLength = 70;
 
 class ProfileList extends React.Component {
   state = {
@@ -40,24 +41,23 @@ class ProfileList extends React.Component {
       console.log(profiles);
     });
   }
-  
+
   render() {
     const { classes } = this.props;
     const bull = <span className={classes.bullet}>•</span>;
-    
+
     return (
-        
-      <Grid className="MyGrid" container spacing={3}>
+      <Grid className="myGrid" container spacing={3}>
         {this.state.profiles.map((profile, index) => (
           //<p key={index}>{profile.name}</p>
 
-          <Grid key={index} item xs={12} sm={6} md={3} className="profileCard">
+          <Grid key={index} item xs={12}  sm={6} md={4} lg={3} className="profileCard">
             <Card className={classes.root}>
               <CardActionArea>
                 <CardMedia
                   className={classes.media}
                   image={avatarImg}
-                //   title={profile.picture.comment}
+                  //   title={profile.picture.comment}
                 />
                 <CardContent className="profileCard_header">
                   <CardActions className="profileCard_header-content">
@@ -70,20 +70,22 @@ class ProfileList extends React.Component {
                 <CardContent className="profileCard_location">
                   <CardActions className="profileCard_location-container">
                     <div className="profileCard_location-content">
-                      <LocationOnIcon style={{ color: "#fff" }} />
+                      <LocationOnIcon width="10%" style={{ color: "#fff" }} />
                       <div className="profileCard_location-data">
                         <Typography
                           gutterBottom
                           variant="subtitle2"
-                          component="span"
+                          component="div"
+                          className="profileCard_location-distance"
                         >
                           {profile.location.distance}m
                         </Typography>
-                        <span>|</span>
+                        <span className="profileCard_location-bar">|</span>
                         <Typography
                           gutterBottom
                           variant="subtitle2"
-                          component="span"
+                          component="div"
+                          className="profileCard_location-city"
                         >
                           {profile.location.city}
                         </Typography>
@@ -98,7 +100,7 @@ class ProfileList extends React.Component {
                     color="inherit"
                     component="p"
                   >
-                    {profile.headline}
+                    {`${profile.headline.substring(0, maxLength)}...`}
                   </Typography>
                 </CardContent>
               </CardActionArea>

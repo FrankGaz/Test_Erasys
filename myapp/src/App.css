@@ -6,9 +6,10 @@
 }*/
 
 
-/* MATERIAL UI CHANGED STYLES */
+/* MATERIAL UI FORCED CHANGED STYLES */
 .MuiGrid-grid-xs-12 {
   max-width: 350px !important;
+  min-width: 277px !important;
 
 }
 
@@ -60,12 +61,31 @@
   display: inline-flex;
   justify-content: space-around;
 }
+.profileCard_location-distance{
+  width: 30%;
+  display: inline-flex;
+  justify-content: center;
+}
+.profileCard_location-bar{
+  width: 5%;
+  display: inline-flex;
+  justify-content: center;
+  padding-left: 20px;
+}
+.profileCard_location-city{
+  width: 60%;
+  display: inline-flex;
+  justify-content: flex-start;
+  padding-left: 20px;
+  white-space: nowrap;
+}
 .profileCard_body {
   background-color: #0C4864;
 }
 
 p.profileCard_body-head {
   color: #fff;
+  
 }
 
 .profileCard_data {
@@ -78,9 +98,15 @@ p.profileCard_body-head {
 }
 
 @media (max-width: 600px) {
-  .MuiGrid-container {
+  .myGrid {
+    justify-content: center;
+  }
+ 
+}
+
+@media (max-width: 959px) {
+  .myGrid {
     justify-content: center;
   }
 }
-
 /* style={{ backgroundColor: "#00cc00" }} */

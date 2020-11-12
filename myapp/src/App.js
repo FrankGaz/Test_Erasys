@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
 function App() {
   const classes = useStyles();
   return (
-    <Container maxWidth="lg">
+    <Container className="myContainer" maxWidth="lg">
       <div className={classes.root}>
         
           <ProfileCardGrid />
