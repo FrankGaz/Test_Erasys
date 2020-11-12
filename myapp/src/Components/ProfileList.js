@@ -14,7 +14,6 @@ import avatarImg from "../images/avatar_pic.jpg";
 import "../App.css";
 
 const apiProfiles = "/api/search?length=20&sorting=DISTANCE";
-const apiPicture = "/api/search?length=20&sorting=DISTANCE";
 const profilesAPI = http.get(apiProfiles);
 const backgroundColor = "#0C4864";
 const useStyles = (theme) => ({
@@ -40,22 +39,12 @@ class ProfileList extends React.Component {
       const profiles = res.data.items;
       this.setState({ profiles });
     });
-    // profilesAPI.then((res) => {
-    //     const pictures = res.data.items.picture;
-    //     this.setState({ pictures });
-    //     console.log(pictures);
-
-    //   });
   }
 
   render() {
     const { classes } = this.props;
     const bull = <span className={classes.bullet}>•</span>;
-    // this.state.profiles.map((profile) => (
-    //     this.state.profile.map((picture)=>(
-    //         console.log(picture)
-    //     ))
-    // ))
+
     return (
       <Grid className="myGrid" container spacing={3}>
         {this.state.profiles.map((profile, index) => (
@@ -73,10 +62,7 @@ class ProfileList extends React.Component {
                 <CardMedia
                   className={classes.media}
                   image={avatarImg}
-                  //title={profile.picture.comment}
-                  //   title={this.state.images.map((profile, index) => (
-
-                  //   )}
+          
                 />
                 <CardContent className="profileCard_header">
                   <CardActions className="profileCard_header-content">

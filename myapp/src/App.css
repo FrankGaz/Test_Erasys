@@ -1,12 +1,10 @@
-/*
-.profileCard {
-  background-color: #0C4864;
-  max-width: 350px !important;
- 
-}*/
-
 
 /* MATERIAL UI FORCED CHANGED STYLES */
+.MuiAppBar-colorPrimary {
+  color: #fff;
+  background-color: #0C4864 !important;
+}
+
 .MuiGrid-grid-xs-12 {
   max-width: 350px !important;
   min-width: 277px !important;
@@ -24,6 +22,15 @@
 }
 
 /* MY STYLES */
+
+.header_logo{
+  max-height: 50px;
+}
+
+.header_title{
+  max-height: 50px;
+}
+
 
 .profileCard_img {
   width: 100%;
@@ -107,9 +114,20 @@ p.profileCard_body-head {
 
 }
 
+/* MEDIA QUERYS*/
+
+@media (max-width: 429px) {
+  .header_title{
+    display: none;
+  }
+}
+
 @media (max-width: 600px) {
   .myGrid {
     justify-content: center;
+  }
+  .header_logo{
+    max-height: 50px;
   }
  
 }
@@ -119,4 +137,3 @@ p.profileCard_body-head {
     justify-content: center;
   }
 }
-/* style={{ backgroundColor: "#00cc00" }} */
