@@ -14,6 +14,7 @@ import avatarImg from "../images/avatar_pic.jpg";
 import "../App.css";
 
 const apiProfiles = "/api/search?length=20&sorting=DISTANCE";
+const apiPicture = "/api/search?length=20&sorting=DISTANCE";
 const profilesAPI = http.get(apiProfiles);
 const backgroundColor = "#0C4864";
 const useStyles = (theme) => ({
@@ -32,37 +33,51 @@ const maxLength = 70;
 class ProfileList extends React.Component {
   state = {
     profiles: [],
+    //pictures:[],
   };
 
-  componentDidMount() {
+  componentWillMount() {
     profilesAPI.then((res) => {
       const profiles = res.data.items;
       this.setState({ profiles });
       console.log(profiles);
+      
     });
+    // profilesAPI.then((res) => {
+    //     const pictures = res.data.items.picture;
+    //     this.setState({ pictures });
+    //     console.log(pictures);
+        
+    //   });
   }
 
   render() {
     const { classes } = this.props;
     const bull = <span className={classes.bullet}>•</span>;
-
+    // this.state.profiles.map((profile) => (
+    //     this.state.profile.map((picture)=>(
+    //         console.log(picture)
+    //     ))
+    // ))
     return (
       <Grid className="myGrid" container spacing={3}>
         {this.state.profiles.map((profile, index) => (
-          //<p key={index}>{profile.name}</p>
-
+          
           <Grid key={index} item xs={12}  sm={6} md={4} lg={3} className="profileCard">
             <Card className={classes.root}>
               <CardActionArea>
                 <CardMedia
                   className={classes.media}
                   image={avatarImg}
-                  //   title={profile.picture.comment}
+                  //title={profile.picture.comment}
+                //   title={this.state.images.map((profile, index) => (
+
+                //   )}
                 />
                 <CardContent className="profileCard_header">
                   <CardActions className="profileCard_header-content">
                     <Typography gutterBottom variant="h6" component="h2">
-                      {profile.personal} {bull} {profile.name}
+                      {profile.personal.age} {bull} {profile.name}
                     </Typography>
                     <TimelineDot style={{ backgroundColor: "#00cc00" }} />
                   </CardActions>
