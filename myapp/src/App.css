@@ -12,6 +12,16 @@
   min-width: 277px !important;
 
 }
+.MuiTimelineDot-defaultGrey.OFFLINE{
+  background-color: #bdbdbd;
+}
+.MuiTimelineDot-defaultGrey.ONLINE{
+  background-color: #00cc00;
+}
+
+.MuiTimelineDot-defaultGrey.DATE{
+  background-color: #cc00ff;
+}
 
 /* MY STYLES */
 

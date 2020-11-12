@@ -33,21 +33,18 @@ const maxLength = 70;
 class ProfileList extends React.Component {
   state = {
     profiles: [],
-    //pictures:[],
   };
 
-  componentWillMount() {
+  componentDidMount() {
     profilesAPI.then((res) => {
       const profiles = res.data.items;
       this.setState({ profiles });
-      console.log(profiles);
-      
     });
     // profilesAPI.then((res) => {
     //     const pictures = res.data.items.picture;
     //     this.setState({ pictures });
     //     console.log(pictures);
-        
+
     //   });
   }
 
@@ -62,24 +59,31 @@ class ProfileList extends React.Component {
     return (
       <Grid className="myGrid" container spacing={3}>
         {this.state.profiles.map((profile, index) => (
-          
-          <Grid key={index} item xs={12}  sm={6} md={4} lg={3} className="profileCard">
+          <Grid
+            key={index}
+            item
+            xs={12}
+            sm={6}
+            md={4}
+            lg={3}
+            className="profileCard"
+          >
             <Card className={classes.root}>
               <CardActionArea>
                 <CardMedia
                   className={classes.media}
                   image={avatarImg}
                   //title={profile.picture.comment}
-                //   title={this.state.images.map((profile, index) => (
+                  //   title={this.state.images.map((profile, index) => (
 
-                //   )}
+                  //   )}
                 />
                 <CardContent className="profileCard_header">
                   <CardActions className="profileCard_header-content">
                     <Typography gutterBottom variant="h6" component="h2">
                       {profile.personal.age} {bull} {profile.name}
                     </Typography>
-                    <TimelineDot style={{ backgroundColor: "#00cc00" }} />
+                    <TimelineDot className={profile.online_status} />
                   </CardActions>
                 </CardContent>
                 <CardContent className="profileCard_location">
